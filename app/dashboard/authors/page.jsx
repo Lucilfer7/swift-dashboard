@@ -1,23 +1,15 @@
+import AuthorsList from "@/components/AuthorsList";
 import React from "react";
-
-async function getData() {
-  const res = await fetch('http://localhost:8080/author', {cache: 'force-cache'});
-
-  if (!res) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json()
-}
+import { getAuthorsData } from "@/app/getData";
 
 const DashboardAuthorsPage = async () => {
-  const data = await getData()
+  const authors = await getAuthorsData();
   return (
-    <ul>
-      {data.map(author => (
-        <li key={author.AuthorID}>{author.Name} {author.LastName}</li>
-      ))}
-    </ul>
+    <div className="w-full container mx-auto px-5 py-4">
+      <h1 className="text-3xl">Authors</h1>
+      <AuthorsList authors={authors} />
+    </div>
   );
 };
 
-export default DashboardAuthorsPage
+export default DashboardAuthorsPage;

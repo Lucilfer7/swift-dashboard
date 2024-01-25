@@ -10,9 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex text-gray-800 dark:text-gray-200 min-h-screen`}>
+      <body className={`${inter.className} flex text-gray-800 dark:text-gray-200 min-h-screen antialiased`}>
         <Sidebar />
-        <main className="p-7 flex-1 text-2xl font-semibold bg-gray-200 dark:bg-gray-900">{children}</main>
+        <main className="p-7 flex-1 font-light bg-gray-200 dark:bg-gray-900">{children}</main>
       </body>
     </html>
   );
