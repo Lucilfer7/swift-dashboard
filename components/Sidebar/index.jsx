@@ -2,18 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import Menu from "./Menu";
+import Logo from "./Logo";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
-  const menus = [
-    { title: "Home", href: "/" },
-    { title: "Authors", href: "dashboard/authors" },
-    { title: "Books", href: "dashboard/books" },
-    { title: "Collections", href: "dashboard/collections" },
-    { title: "Publishers", href: "dashboard/publishers" },
-    { title: "Works", href: "dashboard/works" },
-  ];
-
+  
   return (
     <section
       className={`${
@@ -30,38 +24,8 @@ const Sidebar = () => {
         alt="control"
         onClick={() => setOpen(!open)}
       />
-      <div className="flex gap-x-4 items-center">
-        <Image
-          src="/assets/logo.png"
-          height={70}
-          width={70}
-          alt="Swift logo"
-          className={`rounded-full cursor-pointer duration-500 ${
-            open && "rotate-[360deg]"
-          }`}
-        />
-        <h1
-          className={`text-white origin-left font-medium text-xl duration-200 ${
-            !open && `scale-0`
-          }`}
-        >
-          Swift
-        </h1>
-      </div>
-      <ul>
-        {menus.map((menu, index) => (
-          <li
-            key={index}
-            className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-swift-purple-900`}
-          >
-            <Link href={`/${menu.href}`} className="w-full">
-              <span className={`${!open && "hidden"} origin-left duration-200`}>
-                {menu.title}
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Logo open={open} />
+      <Menu open={open} />
     </section>
   );
 };
