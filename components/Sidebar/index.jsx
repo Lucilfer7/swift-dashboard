@@ -12,7 +12,7 @@ const Sidebar = () => {
     <section
       className={`${
         open ? `w-72` : `w-20`
-      } duration-300 h-screen relative bg-swift-purple-950 p-5 pt-8`}
+      } duration-300 relative bg-swift-purple-950 p-5 pt-8`}
     >
       <Image
         src="/assets/control.png"
