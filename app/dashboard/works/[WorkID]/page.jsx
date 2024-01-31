@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 const WorkDetailPage = ({ params }) => {
   const [edit, setEdit] = useState(false);
   const [editAuthors, setEditAuthors] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [work, setWork] = useState({
     WorkID: "",
     WorkDescription: "",
@@ -40,7 +39,6 @@ const WorkDetailPage = ({ params }) => {
           previousAuthors={work.Authors}
           workId={params.WorkID}
           setEditAuthors={handleEditAuthors}
-          searchTerm={searchTerm} setSearchTerm={setSearchTerm} 
         />
       ) : (
         <WorkPage
