@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAuthorsData, getRoles } from "@/app/getData";
 import axios from "axios";
 import SelectedAuthors from "./SelectedAuthors";

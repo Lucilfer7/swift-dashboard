@@ -5,8 +5,11 @@ import Form from "../Form";
 import Input from "../Form/Input";
 import Textarea from "../Form/Textarea";
 import FileInput from "../Form/FileInput";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const EditWorkPage = ({ data, setEdit }) => {
+  const router = useRouter();
   const [workToEdit, setWorkToEdit] = useState({
     WorkID: "",
     WorkDescription: "",
@@ -28,14 +31,15 @@ const EditWorkPage = ({ data, setEdit }) => {
 
   const formTitle = data.WorkTitle;
 
-  const isSaveButtonDisabled = (
-    JSON.stringify(workToEdit) === JSON.stringify(data)
-  );
+  const isSaveButtonDisabled =
+    Object.keys(workToEdit).every((key) => workToEdit[key] === data[key]) &&
+    file.size === 0;
 
   useEffect(() => {
     setWorkToEdit(data);
   }, [data]);
 
+  // ! Check later that the publishing year and description do not disable the Submit button
   const handleInputChange = ({ target: { name, value } }) => {
     setWorkToEdit((prevWorkToEdit) => ({
       ...prevWorkToEdit,
@@ -56,10 +60,19 @@ const EditWorkPage = ({ data, setEdit }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    console.log(data)
     try {
-      console.log(workToEdit);
-      console.log(file);
+      let workData;
+      if (file.name !== "") {
+        workData = { workToEdit, file };
+      } else {
+        workData = workToEdit;
+      }
+      const response = await axios.put(
+        `http://localhost:8080/works/${data.WorkID}`,
+        workData
+      );
+      
     } catch (error) {
       console.error(error);
     }
@@ -70,7 +83,11 @@ const EditWorkPage = ({ data, setEdit }) => {
       <h1 className="text-2xl font-bold">
         Edit Work — <span className="italic">{formTitle}</span>
       </h1>
-      <Form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="p-4 w-full m-auto"
+        encType="multipart/form-data"
+      >
         <Input
           name="WorkTitle"
           value={workToEdit.WorkTitle}
@@ -108,7 +125,7 @@ const EditWorkPage = ({ data, setEdit }) => {
         />
         <CancelButton onClick={setEdit}>Cancel Edit</CancelButton>
         <SubmitButton isDisabled={isSaveButtonDisabled}>Save</SubmitButton>
-      </Form>
+      </form>
     </div>
   );
 };
