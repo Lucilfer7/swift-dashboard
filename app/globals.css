@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Estilos por defecto (light theme) */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6b46c1; /* Color púrpura */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #d1d5db; /* Color gris */
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6b46c1 #d1d5db;
+}
+
+/* Estilos para dark theme */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background-color: #8b5cf6; /* Color morado oscuro */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #1f2937; /* Color gris oscuro */
+  }
+
+  * {
+    scrollbar-color: #8b5cf6 #1f2937;
+  }
+}

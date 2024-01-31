@@ -6,7 +6,7 @@ const Description = ({description}) => {
       <div>
         {description.split("\r\n") &&
           description.split("\r\n").map((paragraph, index) => (
-            <p key={index} className="font-extralight pb-1">
+            <p key={index} className="font-extralight pb-1 text-justify">
               {paragraph}
             </p>
           ))}
