@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.className} flex text-gray-800 dark:text-gray-200 min-h-screen antialiased`}>
         <Sidebar />
-        <main className="p-7 flex-1 font-light bg-gray-200 dark:bg-gray-900">{children}</main>
+        <main className="p-7 flex-1 font-light transition-all duration-300 bg-gray-200 text-gray-800 dark:text-gray-200 dark:bg-gray-900">{children}</main>
       </body>
     </html>
   );

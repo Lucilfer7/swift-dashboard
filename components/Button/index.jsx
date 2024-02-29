@@ -24,7 +24,7 @@ export const SubmitButton = ({ children, onClick, isDisabled }) => {
 export const Button = ({children, onClick}) => {
   return (
     <button type="button"
-    className={`w-full p-2 bg-dark-blue-600`}
+    className={`w-full p-2 bg-dark-blue-600 text-gray-200`}
     onClick={onClick}>
       {children}
     </button>

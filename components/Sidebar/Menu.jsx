@@ -9,6 +9,7 @@ const Menu = ({ open }) => {
     { title: "Collections", href: "dashboard/collections" },
     { title: "Publishers", href: "dashboard/publishers" },
     { title: "Works", href: "dashboard/works" },
+    { title: "Settings", href: "dashboard/settings" },
   ];
   return (
     <ul>

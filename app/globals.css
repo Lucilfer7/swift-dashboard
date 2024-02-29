@@ -2,18 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos por defecto (light theme) */
+:root {
+  --swift-purple-50: #fbf4ff;
+  --swift-purple-100: #f6e5ff;
+  --swift-purple-200: #efd0ff;
+  --swift-purple-300:#e2acff;
+  --swift-purple-400:#d076ff;
+  --swift-purple-500:#be43ff;
+  --swift-purple-600:#af1eff;
+  --swift-purple-700:#980fe1;
+  --swift-purple-800:#7b11b0;
+  --swift-purple-900:#691093;
+  --swift-purple-950:#49006f;
+  --dark-blue-50: #f2f2ff;
+  --dark-blue-100:#e7e7ff;
+  --dark-blue-200:#d2d3ff;
+  --dark-blue-300:#afadff;
+  --dark-blue-400:#897fff;
+  --dark-blue-500:#624bff;
+  --dark-blue-600:#4e26ff;
+  --dark-blue-700:#4014ed;
+  --dark-blue-800:#3410c7;
+  --dark-blue-900:#3111b0;
+  --dark-blue-950:#17076e;
+  --lochinvar-50: #f1fcf9;
+  --lochinvar-100: #d0f7ef;
+  --lochinvar-200: #a0efe1;
+  --lochinvar-300: #69dfce;
+  --lochinvar-400: #3ac7b6;
+  --lochinvar-500: #21ab9d;
+  --lochinvar-600: #17877e;
+  --lochinvar-700: #176e68;
+  --lochinvar-800: #175855;
+  --lochinvar-900: #184946;
+  --lochinvar-950: #072c2b;
+}
+
+
+.sidebar {
+  background-color: var(--main-theme-color, #fbf4ff);
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #6b46c1; /* Color púrpura */
+  background-color: #6b46c1;
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #d1d5db; /* Color gris */
+  background-color: #d1d5db;
 }
 
 * {
@@ -24,11 +64,11 @@
 /* Estilos para dark theme */
 @media (prefers-color-scheme: dark) {
   ::-webkit-scrollbar-thumb {
-    background-color: #8b5cf6; /* Color morado oscuro */
+    background-color: #8b5cf6;
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #1f2937; /* Color gris oscuro */
+    background-color: #1f2937;
   }
 
   * {

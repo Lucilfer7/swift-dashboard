@@ -1,18 +1,17 @@
-"use client";
+"use client"
 import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import Menu from "./Menu";
 import Logo from "./Logo";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   
-  return (
+    return (
     <section
       className={`${
         open ? `w-72` : `w-20`
-      } duration-300 relative bg-swift-purple-950 p-5 pt-8`}
+      } duration-300 relative p-5 pt-8 bg-swift-purple-700`}// Aplica el color seleccionado
     >
       <Image
         src="/assets/control.png"
